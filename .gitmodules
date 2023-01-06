@@ -1,0 +1,6 @@
+[submodule "extern/clogger"]
+	path = extern/clogger
+	url = git@github.com:glochtefeld/clogger.git
+[submodule "extern/linenoise"]
+	path = extern/linenoise
+	url = git@github.com:glochtefeld/linenoise.git
