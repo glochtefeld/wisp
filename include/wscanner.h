@@ -17,7 +17,7 @@ typedef struct {
 } WToken;
 
 typedef struct {
-    const char *src;
+    const char *start;
     const char *current;
     int line;
 } Scanner;

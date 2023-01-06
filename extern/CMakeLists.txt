@@ -1,0 +1,2 @@
+add_subdirectory(linenoise)
+add_subdirectory(clogger)
