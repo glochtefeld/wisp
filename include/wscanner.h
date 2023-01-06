@@ -16,6 +16,12 @@ typedef struct {
     int line;
 } WToken;
 
-void initScanner(const char *source);
-WToken scanToken();
+typedef struct {
+    const char *src;
+    const char *current;
+    int line;
+} Scanner;
+
+void initScanner(const char *source, Scanner *scanner);
+WToken scanToken(Scanner *scanner);
 #endif

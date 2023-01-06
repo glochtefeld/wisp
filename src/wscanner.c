@@ -1,40 +1,35 @@
 #include "wscanner.h"
 #include <stdbool.h>
 
-typedef struct {
-    const char *src;
-    const char *current;
-    int line;
-} Scanner;
-
-Scanner scanner;
-
-static bool isAtEnd() {
-    return *scanner.current == '\0';
+static bool isAtEnd(Scanner *scanner) {
+    return *scanner->current == '\0';
 }
-static char advance() {
-    scanner.current++;
-    return scanner.current[-1];
+static char advance(Scanner *scanner) {
+    scanner->current++;
+    return scanner->current[-1];
 }
-static char peek() {
-    return *scanner.current;
+static char peek(Scanner *scanner) {
+    return *scanner->current;
 }
-static char peekNext() {
-    if (isAtEnd()) return '\0';
-    return scanner.current[1];
+static char peekNext(Scanner *scanner) {
+    if (isAtEnd(scanner)) return '\0';
+    return scanner->current[1];
 }
 
-static bool match(char expected) {
-    if (isAtEnd()) return false;
-    if (*scanner.current != expected) return false;
-    scanner.current++;
+static bool match(Scanner *scanner, char expected) {
+    if (isAtEnd(scanner)) return false;
+    if (*scanner->current != expected) return false;
+    scanner->current++;
     return true;
 }
 
-void initScanner(const char *source) {
-
+void initScanner(const char *source, Scanner *out) {
+    out->src = source;
+    out->current = source;
+    out->line = 1;
 }
 
-WToken scanToken() {
+WToken scanToken(Scanner *scanner) {
+    
 
 }
