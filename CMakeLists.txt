@@ -10,7 +10,9 @@ add_definitions("-DCLOGGER_USE_COLOR=1")
 add_subdirectory(extern)
 add_library(wisp-dev
     include/wscanner.h
+    include/wsymbol.h
     src/wscanner.c
+    src/wsymbol.c
 )
 target_include_directories(wisp-dev PUBLIC include)
 

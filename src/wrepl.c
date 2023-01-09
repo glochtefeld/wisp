@@ -47,7 +47,7 @@ void repl() {
         while (parens > 0 && (next = linenoise("> ")) != NULL) { // continue until program is balanced
             info_log("parens: %d, line: %s", parens, next);
             info_log("Reading addtl input...");
-            command = strcat(command, " ");
+            command = strcat(command, "\n");
             command = strcat(command, next);
             parens = unbalanced_parens(next, parens);
         }

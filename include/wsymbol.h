@@ -1,5 +1,7 @@
-#ifndef WOBJECT_H
-#define WOBJECT_H
+#ifndef WSYMBOL_H
+#define WSYMBOL_H
+
+#include <stdbool.h>
 
 typedef enum {
     WOBJ_NIL,
@@ -20,15 +22,28 @@ typedef struct {
         bool truthy;
         WRational ratval;
         double floatval;
-    };
+    } value;
 } WVal;
 
-typedef WVal (*WFun)(int argCount, WVal *args);
+struct WCell;
+union SExpr;
+
+typedef SExpr (*WFun)(SExpr args);
 
 typedef struct {
-    char *name;
+    char *symbol;
+    WFun *function;
     WVal value;
-    WFun *func;
-} WObject;
+} WAtom;
 
-#endif // WOBJECT_H
+typedef union SExpr {
+    WAtom value;
+    WCell cell;
+} SExpr;
+
+typedef struct WCell {
+    SExpr *car;
+    SExpr *cdr;
+} WCell;
+
+#endif // WSYMBOL_H
