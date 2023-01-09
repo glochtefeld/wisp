@@ -1,0 +1,2 @@
+#include "wsymbol.h"
+
