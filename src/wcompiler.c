@@ -7,5 +7,5 @@ static void endScope();
 static bool match(WTokenType type);
 static bool check(WTokenType type);
 static void consume(WTokenType type, const char *message);
-static void initCompiler(WCompiler *compiler, FunctionType type);
+static void initCompiler(WCompiler *compiler);
 static SExpr *endCompiler();
